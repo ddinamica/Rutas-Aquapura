@@ -52,19 +52,19 @@
       let map;
       const kmlLayers = [];
       const capas = [
-  { nombre: "RD01", url: "https://www.google.com/uc?id=1mWIU_cJQRLATcIPD0-qX9CEjUotcJYkT&export=download", descripcion: "587 clientes" },
-  { nombre: "RD02", url: "https://www.google.com/uc?id=15G21S7CYgQlaDdf0W0Tb5RZLo54qkX1q&export=download", descripcion: "288 clientes" },
-  { nombre: "RD03", url: "https://www.google.com/uc?id=1WRmrTg0VP17CnPSFXIOY3FwgQubEzkfA&export=download", descripcion: "350 clientes" },
-  { nombre: "RD04", url: "https://www.google.com/uc?id=1MikwR-Zi33CbZrXJwOHqOMe8b7xDfiI7&export=download", descripcion: "428 clientes" },
-  { nombre: "RD05", url: "https://www.google.com/uc?id=1aet7JbkO7xMEC8K9LGwKTZZ1W4Nq2WDC&export=download", descripcion: "214 clientes" },
-  { nombre: "RD06", url: "https://www.google.com/uc?id=1enyW_KQAfJMVdPhzLbfuB6C-Zb4wtdYL&export=download", descripcion: "178 clientes" },
-  { nombre: "RD07", url: "https://www.google.com/uc?id=1vKpSDV_JUHoQzadUhEsT3v5RWw_rSolA&export=download", descripcion: "147 clientes" },
-  { nombre: "RD08", url: "https://www.google.com/uc?id=1BYhzn1_oKLtHVE6FmfQgMqxFlvTEyUXF&export=download", descripcion: "421 clientes" },
-  { nombre: "RD09", url: "https://www.google.com/uc?id=1I8FD_kPCfssY13xBhr9RYvcnqVhDwIdV&export=download", descripcion: "48 clientes" },
-  { nombre: "RD010", url: "https://www.google.com/uc?id=1tdN3O0ftT17xt_Gx8845DBpfoGDjl4Gr&export=download", descripcion: "109 clientes" },
-  { nombre: "RD011", url: "https://www.google.com/uc?id=1A6BOEift_npXo1rPtvIAKyA1yxEE5C36&export=download", descripcion: "225 clientes" },
-  { nombre: "RD012", url: "https://www.google.com/uc?id=1mFs6JuXJlTkvANSbIMNE_XUOXUeZuj36&export=download", descripcion: "217 clientes" }
-];
+        { nombre: "RD01", url: "https://www.google.com/uc?id=1mWIU_cJQRLATcIPD0-qX9CEjUotcJYkT&export=download", descripcion: "587 clientes" },
+        { nombre: "RD02", url: "https://www.google.com/uc?id=15G21S7CYgQlaDdf0W0Tb5RZLo54qkX1q&export=download", descripcion: "288 clientes" },
+        { nombre: "RD03", url: "https://www.google.com/uc?id=1WRmrTg0VP17CnPSFXIOY3FwgQubEzkfA&export=download", descripcion: "350 clientes" },
+        { nombre: "RD04", url: "https://www.google.com/uc?id=1MikwR-Zi33CbZrXJwOHqOMe8b7xDfiI7&export=download", descripcion: "428 clientes" },
+        { nombre: "RD05", url: "https://www.google.com/uc?id=1aet7JbkO7xMEC8K9LGwKTZZ1W4Nq2WDC&export=download", descripcion: "214 clientes" },
+        { nombre: "RD06", url: "https://www.google.com/uc?id=1enyW_KQAfJMVdPhzLbfuB6C-Zb4wtdYL&export=download", descripcion: "178 clientes" },
+        { nombre: "RD07", url: "https://www.google.com/uc?id=1vKpSDV_JUHoQzadUhEsT3v5RWw_rSolA&export=download", descripcion: "147 clientes" },
+        { nombre: "RD08", url: "https://www.google.com/uc?id=1BYhzn1_oKLtHVE6FmfQgMqxFlvTEyUXF&export=download", descripcion: "421 clientes" },
+        { nombre: "RD09", url: "https://www.google.com/uc?id=1I8FD_kPCfssY13xBhr9RYvcnqVhDwIdV&export=download", descripcion: "48 clientes" },
+        { nombre: "RD010", url: "https://www.google.com/uc?id=1tdN3O0ftT17xt_Gx8845DBpfoGDjl4Gr&export=download", descripcion: "109 clientes" },
+        { nombre: "RD011", url: "https://www.google.com/uc?id=1A6BOEift_npXo1rPtvIAKyA1yxEE5C36&export=download", descripcion: "225 clientes" },
+        { nombre: "RD012", url: "https://www.google.com/uc?id=1mFs6JuXJlTkvANSbIMNE_XUOXUeZuj36&export=download", descripcion: "217 clientes" }
+      ];
 
       function initMap() {
         map = new google.maps.Map(document.getElementById("map"), {
