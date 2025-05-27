@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Visor de Clientes por Zona</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      #header {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        background-color: #f2f2f2;
+      }
+      #logo {
+        height: 40px;
+        margin-right: 10px;
+      }
+      #map {
+        height: 85vh;
+        width: 100%;
+      }
+      #panel {
+        padding: 10px;
+        background: #fff;
+        overflow-x: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+      }
+      label {
+        font-size: 0.9em;
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <img id="logo" src="https://drive.google.com/uc?id=1tG6PFk7G7HJDtjBnb8ve2twtiMKKoTh2" alt="Logo Empresa">
+      <h2>Visor de Clientes por Zona</h2>
+    </div>
+
+    <div id="panel"></div>
+    <div id="map"></div>
+
+    <script>
+      let map;
+      const kmlLayers = [];
+      const capas = [
+        { nombre: "RD01", url: "https://drive.google.com/uc?export=download&id=1mWIU_cJQRLATcIPD0-qX9CEjUotcJYkT", descripcion: "587 clientes" },
+        { nombre: "RD02", url: "https://drive.google.com/file/d/15G21S7CYgQlaDdf0W0Tb5RZLo54qkX1q/view?usp=drive_link", descripcion: "288 clientes" },
+        { nombre: "RD03", url: "https://drive.google.com/file/d/1WRmrTg0VP17CnPSFXIOY3FwgQubEzkfA/view?usp=drive_link", descripcion: "350 clientes" },
+        { nombre: "RD04", url: "https://drive.google.com/file/d/1MikwR-Zi33CbZrXJwOHqOMe8b7xDfiI7/view?usp=drive_link", descripcion: "428 clientes" },
+        { nombre: "RD05", url: "https://drive.google.com/file/d/1aet7JbkO7xMEC8K9LGwKTZZ1W4Nq2WDC/view?usp=drive_link", descripcion: "214 clientes" },
+        { nombre: "RD06", url: "https://drive.google.com/file/d/1enyW_KQAfJMVdPhzLbfuB6C-Zb4wtdYL/view?usp=drive_link", descripcion: "178 clientes" },
+        { nombre: "RD07", url: "https://drive.google.com/file/d/1vKpSDV_JUHoQzadUhEsT3v5RWw_rSolA/view?usp=drive_link", descripcion: "147 clientes" },
+        { nombre: "RD08", url: "https://drive.google.com/file/d/1BYhzn1_oKLtHVE6FmfQgMqxFlvTEyUXF/view?usp=drive_link", descripcion: "421 clientes" },
+        { nombre: "RD09", url: "https://drive.google.com/file/d/1I8FD_kPCfssY13xBhr9RYvcnqVhDwIdV/view?usp=drive_link", descripcion: "48 clientes" },
+        { nombre: "RD010", url: "https://drive.google.com/file/d/1tdN3O0ftT17xt_Gx8845DBpfoGDjl4Gr/view?usp=drive_link", descripcion: "109 clientes" },
+        { nombre: "RD011", url: "https://drive.google.com/file/d/1A6BOEift_npXo1rPtvIAKyA1yxEE5C36/view?usp=drive_link", descripcion: "225 clientes" },
+        { nombre: "RD012", url: "https://drive.google.com/file/d/1mFs6JuXJlTkvANSbIMNE_XUOXUeZuj36/view?usp=drive_link", descripcion: "217 clientes" }
+      ];
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 13.7, lng: -89.2 },
+          zoom: 8,
+        });
+
+        const panel = document.getElementById("panel");
+
+        capas.forEach((capa, index) => {
+          const layer = new google.maps.KmlLayer({
+            url: capa.url,
+            map: null,
+            preserveViewport: true,
+          });
+          kmlLayers.push(layer);
+
+          const label = document.createElement("label");
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.addEventListener("change", (e) => {
+            if (e.target.checked) {
+              layer.setMap(map);
+            } else {
+              layer.setMap(null);
+            }
+          });
+
+          label.appendChild(checkbox);
+          label.appendChild(document.createTextNode(` ${capa.nombre} - ${capa.descripcion}`));
+          panel.appendChild(label);
+        });
+      }
+    </script>
+
+    <script async
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA15cWnKLcfl7IxA0T3mN5XPkQfi1S5aLY&callback=initMap">
+    </script>
+  </body>
+</html>
